@@ -15,7 +15,6 @@ function page() {
     const data = await response.json();
       setPosts(data);
   };
- console.log(promptId,"frfgrkf")
   useEffect(() => {
      if(session?.user.id) {
         fetchPosts();
@@ -26,7 +25,7 @@ function page() {
        router.push(`/update-prompt?id=${post._id}`)
     }
     const handleDelete = async(post) => {
-   const hasConfirmed = confirm("Are you sure you want to delete this post?");
+   const hasConfirmed = alert("Are you sure you want to delete this post?");
    if(hasConfirmed) {
     try {
       const response = await fetch(`/api/prompt/${post._id}`, {
