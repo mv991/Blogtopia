@@ -24,8 +24,9 @@ function Feed() {
   const [searchedResults, setSearchedResults] = useState([]);
 
    const fetchPosts = async () => {
-    const response = await fetch("/api/prompt");
+    const response = await fetch("/app/api/prompt/route.js");
     const data = await response.json();
+      console.log(data,"data")
     setAllPosts(data);
 
   };
@@ -33,7 +34,7 @@ function Feed() {
   useEffect(() => {
     fetchPosts();
   }, []);
-  console.log(allPosts)
+
    const filterPrompts = (searchtext) => {
     const regex = new RegExp(searchtext, "i"); // 'i' flag for case-insensitive search
     return allPosts.filter(
@@ -82,7 +83,7 @@ function Feed() {
           handleTagClick={handleTagClick}
         />
        : (
-        allPosts.length!=0 && <PromptCardList data={allPosts} handleTagClick={handleTagClick} />
+        <PromptCardList data={allPosts} handleTagClick={handleTagClick} />
       )}
  
     </section>
