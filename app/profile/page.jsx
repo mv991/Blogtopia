@@ -18,7 +18,7 @@ function page() {
   useEffect(() => {
      if(session?.user.id) {
         fetchPosts();
-        console.log(promptId)
+    
      }
   },[session])
    const handleEdit = (post) => {

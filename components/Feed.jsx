@@ -28,6 +28,7 @@ function Feed() {
     const data = await response.json();
 
     setAllPosts(data);
+
   };
 
   useEffect(() => {
@@ -74,14 +75,16 @@ function Feed() {
         className='search_input peer'
         />
         </form>
-     {searchText ? (
-        <PromptCardList
+      
+     {searchText ? 
+       <PromptCardList
           data={searchedResults}
           handleTagClick={handleTagClick}
         />
-      ) : (
-        <PromptCardList data={allPosts} handleTagClick={handleTagClick} />
+       : (
+        allPosts.length!=0 && <PromptCardList data={allPosts} handleTagClick={handleTagClick} />
       )}
+ 
     </section>
   )
 }
