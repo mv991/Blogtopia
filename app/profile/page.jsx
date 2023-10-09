@@ -25,7 +25,7 @@ function page() {
        router.push(`/update-prompt?id=${post._id}`)
     }
     const handleDelete = async(post) => {
-   const hasConfirmed = alert("Are you sure you want to delete this post?");
+   const hasConfirmed = confirm("Are you sure you want to delete this post?");
    if(hasConfirmed) {
     try {
       const response = await fetch(`/api/prompt/${post._id}`, {
