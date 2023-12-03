@@ -5,9 +5,9 @@ export const dynamic = 'force-dynamic';
 export const GET = async (request) => {
     try {
         await connectToDB();
-        const prompts = await Prompt.find({}).populate("creator");
+        const prompts = await Prompt.find().populate("creator");
         return new Response(JSON.stringify(prompts), { status: 200 })
     }catch(e) {
-         return new Response("Failed to fetch all prompts", { status: 500 })
+         return new Response("Failed to fetch all prompts", { status: 500,e:e })
     }
 }
