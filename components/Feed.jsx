@@ -32,6 +32,7 @@ function Feed() {
   };
 
   useEffect(() => {
+    console.log("useEffect ran")
     fetchPosts();
   }, []);
 
