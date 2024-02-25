@@ -109,7 +109,8 @@ export default function Nav ()  {
                 <button
                   type='button'
                   key={provider.name}
-                  onClick={() => {
+                  onClick={(e) => {
+                     e.preventDefault();
                     signIn(provider.id);
                   }}
                   className='black_btn'
